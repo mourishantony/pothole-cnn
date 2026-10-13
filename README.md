@@ -36,6 +36,7 @@ python app.py
 Open http://127.0.0.1:5000, choose a video (mp4/avi/mov/mkv/webm, up to 300 MB) and click **Analyse video**.
 You get a verdict (pothole detected / not), an annotated video (red = pothole, orange = crack) and the strongest pothole frame.
 Pretrained weights are included: `models/final.keras` (83 MB) with `models/classes.json`.
+On Windows with WSL2 + GPU you can instead double-click `start_app.bat`.
 
 **Speed:** on CPU a 30-second clip takes a few minutes. With an NVIDIA GPU it takes about a minute (TensorFlow has no native
 Windows GPU support after 2.10, so on Windows use WSL2 + `pip install "tensorflow[and-cuda]"`).
@@ -65,6 +66,9 @@ DATA_DIR=processed_v3 BACKBONE=efficientnetv2s TAG=effv2s_v3 RESUME=best_effv2s_
 `processed_v3` is `processed_v2` with the original-domain training crops duplicated 3x.
 Datasets: [Road Damage: Potholes, Cracks and Manholes](https://www.kaggle.com/datasets/lorenzoarcioni/road-damage-dataset-potholes-cracks-and-manholes),
 [RDD2022](https://www.kaggle.com/datasets/aliabdelmenam/rdd-2022). Check their licenses before commercial use.
+
+## Troubleshooting
+- `could not be deserialized ... input_axes`: the weights file was saved by an older Keras than the one you run. `final.keras` is saved with Keras 3.12, which newer Keras versions load fine; if you see this error you are running an older Keras, so `pip install -U keras`.
 
 ## Limits
 - Trained on crops, not full frames; heavily cracked pavement can be flagged as a pothole. Not tested on plain-road video.
