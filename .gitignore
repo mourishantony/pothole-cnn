@@ -3,6 +3,7 @@
 __pycache__/
 data/
 models/*.keras
+!models/final.keras
 models/*.pt
 external/
 web_runs/

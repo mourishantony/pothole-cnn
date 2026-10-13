@@ -19,7 +19,7 @@ ap.add_argument("--every", type=int, default=3, help="run the model on every Nth
 ap.add_argument("--smooth", type=int, default=5, help="average predictions over last K inferences")
 args = ap.parse_args()
 
-model = tf.keras.models.load_model(ROOT / "models" / "best.keras")
+model = tf.keras.models.load_model(ROOT / "models" / "final.keras", compile=False)
 classes = json.loads((ROOT / "models" / "classes.json").read_text())
 COLORS = {"normal": (0, 200, 0), "pothole": (0, 0, 255), "crack": (0, 165, 255)}
 
