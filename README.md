@@ -52,6 +52,9 @@ python video_infer.py input.mp4 outputs/annotated.mp4     # whole-frame labels o
 3. Neighbouring tiles merge into one box; a pothole needs at least 2 agreeing tiles.
 4. "Pothole detected" if at least 3 sampled frames contain one. Tune `THRESHOLDS`, `TILE_FRAC`, `MIN_TILES`, `MIN_FRAMES` in `app.py`.
 
+## Run on Google Colab (free T4 GPU)
+Step-by-step guide: [COLAB_SETUP.md](COLAB_SETUP.md); notebook: `colab_pothole_detection.ipynb`.
+
 ## Retrain
 
 ```bash
