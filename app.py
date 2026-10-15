@@ -131,10 +131,12 @@ def process(path, out_dir, every_sec=0.5):
     }
 
 
-PAGE = """<!doctype html><title>Pothole Detector</title>
+PAGE = """<!doctype html><meta charset="utf-8"><meta name="color-scheme" content="light">
+<title>Pothole Detector</title>
 <style>
-body{font-family:system-ui,sans-serif;max-width:860px;margin:2rem auto;padding:0 1rem;color:#222}
-h1{margin-bottom:.2rem} .sub{color:#666;margin-top:0}
+html{background:#fff;color-scheme:light}
+body{font-family:system-ui,sans-serif;max-width:860px;margin:0 auto;padding:2rem 1rem;color:#222;background:#fff;min-height:100vh;box-sizing:border-box}
+h1{margin-bottom:.2rem;color:#111} .sub{color:#555;margin-top:0}
 .box{border:2px dashed #999;border-radius:12px;padding:2rem;text-align:center;background:#fafafa}
 button{background:#0a6cff;color:#fff;border:0;border-radius:8px;padding:.7rem 1.4rem;font-size:1rem;cursor:pointer}
 button:disabled{background:#999} #res{margin-top:1.5rem} video,img{max-width:100%;border-radius:8px}
