@@ -94,7 +94,7 @@ Notes:
 | Problem | Fix |
 |---|---|
 | `No GPU` | Runtime > Change runtime type > T4 GPU, reconnect, re-run from Step 4. |
-| `git clone` fails ("Repository not found" / 403) | The repo is private. Paste a valid token with **Contents: read** on `pothole-cnn`, make the repo public, or use option C. Tokens expire. |
+| `remote: Write access to repository not granted` / 403 / "Repository not found" on clone | GitHub rejected the token. Re-create it (Step 1) with **Repository access = only `pothole-cnn`** and **Contents = Read-only** (a fine-grained token with no Contents permission fails like this). Make sure it was created by the account that owns the repo and has not expired. Easier alternatives: use a classic token with the `repo` scope, make the repo public (option B), or upload the project zip (option C). |
 | `Weights not found` / `final.keras is missing or too small` | Add the file as in Step 6. It must be about 83 MB and at `/content/pothole-cnn/models/final.keras`. A partly uploaded file is too small; wait for the upload to finish. |
 | `could not be deserialized ... input_axes` | `!pip install -U keras`, then restart the session (Step 8). |
 | Page stays on "Analysing..." for a long time or shows an error | Use a shorter video (10-30 s). If it still fails, use the **Fallback** cell at the bottom of the notebook, which analyses a video without the web page. |
