@@ -86,6 +86,8 @@ Notes:
 - Results are decision support only; a person should review them.
 - Keep the cell running while you use the site. To restart the site, use **Runtime > Restart session** and run again from Step 4 (the port stays busy otherwise).
 
+Tip: do not use **Run all** to start the site; run the cells one by one. Log lines such as `Serving Flask app` and the "development server" warning are normal and appear under whichever cell is running. The `http://127.0.0.1:5000` link in those logs does not open from your browser; use the page shown under the "Start the website" cell.
+
 ### Step 10: Stop Colab when finished
 **Runtime > Disconnect and delete runtime**, so you do not use up your free GPU quota. Download anything you want to keep first.
 
@@ -97,7 +99,7 @@ Notes:
 | `remote: Write access to repository not granted` / 403 / "Repository not found" on clone | GitHub rejected the token. Re-create it (Step 1) with **Repository access = only `pothole-cnn`** and **Contents = Read-only** (a fine-grained token with no Contents permission fails like this). Make sure it was created by the account that owns the repo and has not expired. Easier alternatives: use a classic token with the `repo` scope, make the repo public (option B), or upload the project zip (option C). |
 | `Weights not found` / `final.keras is missing or too small` | Add the file as in Step 6. It must be about 83 MB and at `/content/pothole-cnn/models/final.keras`. A partly uploaded file is too small; wait for the upload to finish. |
 | `could not be deserialized ... input_axes` | `!pip install -U keras`, then restart the session (Step 8). |
-| Page stays on "Analysing..." for a long time or shows an error | Use a shorter video (10-30 s). If it still fails, use the **Fallback** cell at the bottom of the notebook, which analyses a video without the web page. |
+| Page stays on "Analysing..." for a long time or shows an error | Use a shorter video (10-30 s). If it still fails, use the **Fallback** cell at the bottom of the notebook (set `RUN_FALLBACK = True` in it first), which analyses a video without the web page. |
 | Page does not appear or port 5000 is busy | Runtime > Restart session, then run from Step 4. |
 | Output video does not play | Use the Fallback cell and download the video, or use a different browser. |
 
